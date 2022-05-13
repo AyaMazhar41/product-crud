@@ -11,4 +11,14 @@ class responder
     {
         return response()->json(['status' => false, 'msg' => $data]);
     }
+    function added(){
+        alert()->success('Added successfully !');
+    }
+    function updated(){
+        alert()->success('Updated successfully !');
+    }
+
+    function deleted(){
+        alert()->success('Deleted successfully !');
+    }
 }

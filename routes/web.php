@@ -1,5 +1,6 @@
 <?php
-
+namespace App\Http\Controllers\Admin;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ Route::group(['middleware' => 'auth'],function () {
 Route::get('/', function () {
     return view('admin.layouts.home');
  });
+ Route::resource('products',ProductController::class);
 });
 
 Route::get('/dashboard', function () {
