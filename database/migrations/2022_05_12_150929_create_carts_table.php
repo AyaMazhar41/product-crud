@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\User::class)->constrained()
             ->cascadeOnDelete();
             $table->decimal('total_price');
-            $table->decimal('delivary')->nullable();
             $table->decimal('grand_total');
             $table->enum('status', ['pending','delivering','completed'])->default('pending');
             $table->enum('payment_method', ['on_delivery','wallet'])->default('on_delivery');

@@ -21,3 +21,8 @@ Route::group(['prefix' => 'auth'], function () {
 });
 Route::resource('products',ProductController::class);
 
+Route::group(['middleware' => 'auth:api'],function (){
+
+    Route::post('cart',[CartController::class,'AddToCart']);
+
+   });
