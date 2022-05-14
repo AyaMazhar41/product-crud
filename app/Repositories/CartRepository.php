@@ -31,6 +31,11 @@ class CartRepository implements CartRepositoryInterface{
 
     }
 
+     public function getAllMyOrder(){
+        $orders =  auth()->user()->orders()->get();
+        return $orders;
+     }
+
 
 
 

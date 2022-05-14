@@ -14,4 +14,10 @@ class CartController extends Controller
         $carts =  $CartRepositoryInterface->addorder($request->validated());
         return \responder::success(new CartResource($carts));
     }
+    public function GetOrders(CartRepositoryInterface $CartRepositoryInterface)
+    {
+        $orders = $CartRepositoryInterface->getAllMyOrder();
+        return \responder::success(CartResource::collection($orders));
+
+    }
 }
