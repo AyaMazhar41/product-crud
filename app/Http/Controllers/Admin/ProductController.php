@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function store(ProductRepositoryInterface $ProductRepositoryInterface,StoreRequest $request)
     {
         $ProductRepositoryInterface->AddProduct($request->validated());
-        added();
+       // added();
         return redirect()->route('products.index');
     }
 

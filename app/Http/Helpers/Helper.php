@@ -1,5 +1,16 @@
 <?php
 
+/*function added(){
+    alert()->success('Added successfully !');
+}
+function updated(){
+    alert()->success('Updated successfully !');
+}
+
+function deleted(){
+    alert()->success('Deleted successfully !');
+}*/
+
 class responder
 {
     public static function success($data)
@@ -11,14 +22,5 @@ class responder
     {
         return response()->json(['status' => false, 'msg' => $data]);
     }
-    function added(){
-        alert()->success('Added successfully !');
-    }
-    function updated(){
-        alert()->success('Updated successfully !');
-    }
 
-    function deleted(){
-        alert()->success('Deleted successfully !');
-    }
 }
