@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class ReviewResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,10 @@ class ProductResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'title'=>$this->title,
-            'description'=>$this->description,
-            'price'=>$this->price,
-            'reviews' => ReviewResource::collection($this->reviews)
-
-        ];    }
+            'username'=>$this->user->name,
+            'rate'=>$this->rate,
+            'review'=>$this->review,
+            'created_at' =>\Carbon\Carbon::parse($this->created_at)->format('d/m/Y'),
+          ];
+    }
 }

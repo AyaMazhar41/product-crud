@@ -13,4 +13,8 @@ class Product extends Model
         'price',
         'description'
     ];
+    public function reviews()
+    {
+        return $this->morphMany(Review::class,'model');
+    }
 }
