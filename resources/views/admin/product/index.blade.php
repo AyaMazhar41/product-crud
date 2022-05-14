@@ -42,11 +42,14 @@
                         <a href="{{ route('products.edit', $product) }}" class="btn btn-info">تعديل</a>
                         <a href="{{ route('products.show', $product) }}" class="btn btn-info">عرض</a>
 
-                            <h6 class="btn btn-danger" data-name="{{ $product->title }}"
-                                data-url="{{ route('products.destroy', $product) }}"
-                                onclick="delete_form(this)">
-                               حذف
-                            </h6>
+                        <button
+                        class="btn btn-danger"
+                        type="button"
+                        data-route="{{route('products.destroy', $product->id)}}"
+                        onclick="delete_form(this)"
+                    >
+                        <span> حذف </span>
+                    </button>
                      </td>
 
                     </tr>
@@ -56,6 +59,9 @@
 
                 </tbody>
             </table>
+            <form style="display: none;" id="delete_form" method="post">
+                @csrf @method('DELETE')
+            </form>
         </div>
     </div>
 </div>

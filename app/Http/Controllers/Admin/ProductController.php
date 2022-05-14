@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function store(ProductRepositoryInterface $ProductRepositoryInterface,StoreRequest $request)
     {
         $ProductRepositoryInterface->AddProduct($request->validated());
-       // added();
+        added();
         return redirect()->route('products.index');
     }
 
@@ -76,6 +76,7 @@ class ProductController extends Controller
     public function update(ProductRepositoryInterface $ProductRepositoryInterface,StoreRequest $request, Product $product)
     {
         $ProductRepositoryInterface->UpdateProductById($product,$request->validated());
+        updated();
         return redirect()->route('products.index');
     }
 
@@ -85,9 +86,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductRepositoryInterface $ProductRepositoryInterface, Product $product)
+    public function destroy(Product $product, ProductRepositoryInterface $ProductRepositoryInterface)
     {
         $ProductRepositoryInterface->DestroyProductById($product);
-
+        deleted();
+        return back();
     }
 }

@@ -62,58 +62,25 @@
             });
             var switchery = new Switchery(html);
         });
-
-        function delete_form(element) {
-            var name = $(element).data('name');
-            var swalTitle = {!! json_encode(trans('dashboard.delete')) !!} + ' ' + name;
-            var swalText = {!! json_encode(trans('dashboard.almostdelete')) !!} + name + {!! json_encode(trans('dashboard.continue')) !!};
-            swal({
-                title: swalTitle,
-                text: swalText,
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonClass: "btn-warning",
-                confirmButtonText: {!! json_encode(trans('dashboard.con')) !!},
-                cancelButtonText: {!! json_encode(trans('dashboard.cancel')) !!}
-            }).then(function(isConfirm) {
-                if (isConfirm.value) {
-                    $('#delete_form').attr('action', $(element).data('url')).submit();
-                }
-            });
-        }
+        </script>
 
 
-        {{-- function activate(id) {
-        $.ajax({
-            url: "{{route('admins.updateActivation')}}",
-            type: 'POST',
-            datatype: 'json',
-            data: {
-                'admin_id' : id
-            },
-            success: function(data) {
-                swal({
-                    title: 'تم التعديل',
-                    text: 'تم تعديل البيانات بنجاح',
-                    type: "success"
-                });
-            },
-            error: function(error) {
-                if (error['status'] == 403) {
-                    swal({
-                        title: 'غير مسموح',
-                        text: 'غير مسموح لك بتعديل حالة المشرفين',
-                        type: "error"
-                    });
-                } else {
-                    swal({
-                        title: 'حدث خطأ',
-                        text: 'حدث خطأ ما برجاء المحاولة لاحقا',
-                        type: "error"
-                    });
-                }
+<script>
+    function delete_form(element){
+        let url=$(element).data('route');
+        Swal.fire({
+            title: 'are you sure to delete this item ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete !',
+            cancelButtonText:'Cancel !'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#delete_form').attr('action',url).submit();
             }
-        });
-    } --}}
-    </script>
+        })
+    }
+</script>
 @endpush
