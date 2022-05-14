@@ -1,8 +1,8 @@
 <?php
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'auth','namespace'=>'App\Http\Controllers\Api'], function () {
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'authController@logout');
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', [AuthController::class,'login']);
+    Route::post('logout', [AuthController::class,'logout']);
 
 });
+Route::resource('products',ProductController::class);
+
