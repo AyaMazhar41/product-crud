@@ -21,7 +21,10 @@
     @if (!$readonly)
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">حفظ</button>
+            <input type="button" onclick="DeleteForm()" value=" حذف" class="btn btn-danger">
+
         </div>
+
     @endif
 </div>
 
@@ -29,6 +32,11 @@
 
 
 @push('scripts')
+<script>
+    function DeleteForm() {
+       document.getElementById("forms").reset();
+    }
+ </script>
 
 
 @endpush
