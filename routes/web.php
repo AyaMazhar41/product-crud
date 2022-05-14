@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('admin.layouts.home');
  });
  Route::resource('products',ProductController::class);
+ Route::get('activities',[LogController::class,'index'])->name('activities.index');
 });
 
 Route::get('/dashboard', function () {

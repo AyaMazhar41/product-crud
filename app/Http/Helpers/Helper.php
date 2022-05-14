@@ -1,6 +1,6 @@
 <?php
 
-/*function added(){
+function added(){
     alert()->success('Added successfully !');
 }
 function updated(){
@@ -9,7 +9,7 @@ function updated(){
 
 function deleted(){
     alert()->success('Deleted successfully !');
-}*/
+}
 
 class responder
 {

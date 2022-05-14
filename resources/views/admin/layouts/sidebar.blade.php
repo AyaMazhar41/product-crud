@@ -25,6 +25,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{route('activities.index')}}">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> logs </span>
+                    </a>
+                </li>
+
 
 
 
