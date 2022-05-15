@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use  App\Http\Requests\Api\Auth\LoginRequest;
+use  App\Http\Requests\Api\Auth\RegisterRequest;
+use App\Interfaces\AuthRepositoryInterface;
 
 use App\Http\Resources\UserResource;
 
@@ -12,7 +14,13 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','register']]);
+    }
+    public function register(AuthRepositoryInterface $AuthRepositoryInterface,RegisterRequest $request)
+    {
+        $user = $AuthRepositoryInterface->AddUser($request->validated());
+        return \responder::success(new UserResource($user));
+
     }
     public function login(LoginRequest $request)
     {
