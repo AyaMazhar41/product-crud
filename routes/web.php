@@ -1,6 +1,4 @@
 <?php
-namespace App\Http\Controllers\Admin;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +11,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'auth'],function () {
-Route::get('/', function () {
-    return view('admin.layouts.home');
- });
- Route::resource('products',ProductController::class);
- Route::get('activities',[LogController::class,'index'])->name('activities.index');
-});
 
+Route::get('/', function () {
+   return view('welcome');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
