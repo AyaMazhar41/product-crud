@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
             'email' => 'shanie.gorczany@example.com',
             'password' => '566666666',
             'lat'  =>'24.69023',
-            'long'=>'46.685'
+            'long'=>'46.685',
+            'is_authorized'=>1
         ]);
     }
 }
